@@ -1,6 +1,6 @@
-import { Injectable } from "@nestjs/common";
-import type { JwtService } from "@nestjs/jwt";
-import type { PrismaService } from "../prisma.service";
+import { Injectable, UnauthorizedException } from "@nestjs/common";
+import { JwtService } from "@nestjs/jwt";
+import { PrismaService } from "../prisma.service";
 
 @Injectable()
 export class AuthService {
@@ -12,9 +12,9 @@ export class AuthService {
 	async login(email: string, password: string) {
 		const user = await this.prisma.user.findUnique({ where: { email } });
 		if (!user) {
-			return { message: "Usuario no encontrado" };
+			throw new UnauthorizedException("Usuario no encontrado");
 		} else if (password !== user.password) {
-			return { message: "Senha incorreta" };
+			throw new UnauthorizedException("Senha incorreta");
 		}
 		const { password: _, ...userWithoutPassword } = user;
 		const token = this.jwtService.sign({ userId: user.id, email: user.email });
