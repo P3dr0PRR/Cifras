@@ -14,6 +14,8 @@ export default function Login() {
 			body: JSON.stringify({ email, password }),
 		});
 		if (resposta.ok) {
+			const data = await resposta.json();
+			document.cookie = `token=${data.token}; path=/`;
 			router.push("/");
 		} else if (resposta.status === 401) {
 			const user = await resposta.json();
