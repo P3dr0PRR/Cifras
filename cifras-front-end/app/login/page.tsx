@@ -16,6 +16,7 @@ export default function Login() {
 		if (resposta.ok) {
 			const data = await resposta.json();
 			document.cookie = `token=${data.token}; path=/`;
+			console.log("foi");
 			router.push("/");
 		} else if (resposta.status === 401) {
 			const user = await resposta.json();
@@ -48,12 +49,14 @@ export default function Login() {
 				<button
 					className="bg-blue-500 text-white px-4 py-2 rounded-md"
 					onClick={handleLogin}
+					type="button"
 				>
 					Login
 				</button>
 				<button
 					className="text-blue-500 mt-4 underline"
 					onClick={handleRegister}
+					type="button"
 				>
 					Registrar-se
 				</button>

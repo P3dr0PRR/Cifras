@@ -1,5 +1,6 @@
 import { Injectable, UnauthorizedException } from "@nestjs/common";
 import { JwtService } from "@nestjs/jwt";
+import * as bcrypt from "bcrypt";
 import { PrismaService } from "../prisma.service";
 
 @Injectable()
@@ -13,7 +14,9 @@ export class AuthService {
 		const user = await this.prisma.user.findUnique({ where: { email } });
 		if (!user) {
 			throw new UnauthorizedException("Usuario no encontrado");
-		} else if (password !== user.password) {
+		}
+		const isPasswordValid = await bcrypt.compare(password, user.password);
+		if (!isPasswordValid) {
 			throw new UnauthorizedException("Senha incorreta");
 		}
 		const { password: _, ...userWithoutPassword } = user;
