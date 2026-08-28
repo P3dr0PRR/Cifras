@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -23,4 +27,91 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+@keyframes fadeUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes glow {
+  0%,
+  100% {
+    text-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+  }
+  50% {
+    text-shadow:
+      0 0 40px rgba(99, 102, 241, 0.8),
+      0 0 80px rgba(99, 102, 241, 0.3);
+  }
+}
+
+@keyframes lineDraw {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes pulse-slow {
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.anim-1 {
+  opacity: 0;
+  animation: fadeUp 0.9s ease-out 0.1s forwards;
+}
+.anim-2 {
+  opacity: 0;
+  animation: fadeUp 0.9s ease-out 0.5s forwards;
+}
+.anim-3 {
+  opacity: 0;
+  animation: fadeUp 0.9s ease-out 1s forwards;
+}
+.anim-4 {
+  opacity: 0;
+  animation: fadeUp 0.9s ease-out 1.6s forwards;
+}
+.anim-5 {
+  opacity: 0;
+  animation: fadeIn 1.2s ease-out 2.4s forwards;
+}
+
+.glow-text {
+  animation: glow 3s ease-in-out infinite;
+}
+
+.line-draw {
+  height: 2px;
+  background: linear-gradient(90deg, #6366f1, #a855f7);
+  animation: lineDraw 1.2s ease-out 0.8s forwards;
+  width: 0;
+}
+
+.pulse-slow {
+  animation: pulse-slow 2s ease-in-out infinite;
 }
