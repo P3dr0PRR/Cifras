@@ -1,6 +1,7 @@
 "use client";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
 
 import Image from "next/image";
 
@@ -9,7 +10,8 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  async function handleLogin() {
+  async function handleLogin(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
     const resposta = await fetch("http://localhost:3001/auth/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -25,10 +27,6 @@ export default function Login() {
     }
   }
 
-  function handleRegister() {
-    router.push("/register");
-  }
-
   return (
     <section className="">
       <div className="header-logo">
@@ -40,7 +38,10 @@ export default function Login() {
           className="loading=eager lg:ml-40"
         />
       </div>
-      <form className="flex flex-col rounded-2xl px-10 py-10 w-full max-w-sm bg-neutral-900 border border-neutral-700 shadow-lg">
+      <form
+        onSubmit={handleLogin}
+        className="flex flex-col rounded-2xl px-10 py-10 w-full max-w-sm bg-neutral-900 border border-neutral-700 shadow-lg"
+      >
         <h2 className="header-login">Entrar</h2>
         <p className="text-base mb-8">Entre na sua conta</p>
 
@@ -62,7 +63,7 @@ export default function Login() {
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <button className="btn-primary" onClick={handleLogin} type="button">
+        <button className="btn-primary" type="submit">
           Entrar
         </button>
 
@@ -74,9 +75,9 @@ export default function Login() {
 
         <div className="flex items-center justify-center gap-2">
           <span className="text-base">Não tem uma conta?</span>
-          <button className="btn-link" onClick={handleRegister} type="button">
+          <Link href="/register" className="btn-link">
             Cadastre-se
-          </button>
+          </Link>
         </div>
       </form>
     </section>
