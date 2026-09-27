@@ -30,7 +30,7 @@ html {
 }
 @layer components {
   .sidebar-btn {
-    @apply cursor-pointer text-white bg-gray-800 border border-orange-900 text-center py-2 rounded-md mx-2 text-lg font-semibold hover:scale-105 transition-transform duration-300;
+    @apply cursor-pointer text-white bg-gray-800 border border-orange-950 focus:transition-transform duration-300 focus:scale-105 focus:outline-none focus:border-orange-500 focus:border-2 text-center py-2 rounded-md mx-2 text-lg font-semibold;
   }
   .header-logo {
     @apply w-full mt-5 mb-4 flex items-center justify-center
