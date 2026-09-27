@@ -13,13 +13,17 @@ export default function MobileMenu({
     setIsMenuOpen(!isMenuOpen);
   }
 
+  function closeMenu() {
+    setIsMenuOpen(false);
+  }
+
   return (
     <div>
-      <div className="block md:hidden">
+      <div className="block md:hidden z-100">
         <button onClick={handleMenuClick} className="p-2">
           <HeaderIn />
         </button>
-        {isMenuOpen && children}
+        {isMenuOpen && <div className="fixed inset-t-16 inset-x-0 z-50" onClick={closeMenu}>{children}</div>}
       </div>
     </div>
   );

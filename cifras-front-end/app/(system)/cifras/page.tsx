@@ -1,7 +1,7 @@
 export default function cifras() {
   return (
-    <div className="w-full min-h-screen bg-gray-950 flex flex-col">
-      <section className="flex flex-col items-center justify-center min-h-screen px-6 text-center relative overflow-hidden">
+    <div className="w-full h-full bg-gray-950 flex flex-col">
+      <section className="flex flex-col items-center justify-center px-6 text-center relative overflow-hidden">
         Cifra é um sistema de notação musical que usa letras, números e símbolos
         para representar os acordes de uma música de forma prática.Como Funciona
         na MúsicaLetras básicas: As sete primeiras letras do alfabeto

@@ -7,11 +7,11 @@ export default function SystemLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div>
+    <div className="flex flex-col h-dvh">
       <MobileMenu>
         <Sidebar />
       </MobileMenu>
-      <div className="grid md:grid-cols-[16rem_1fr]">
+      <div className="grid md:grid-cols-[16rem_1fr] flex-1 h-full">
         <div className="hidden md:block">
           <Sidebar />
         </div>

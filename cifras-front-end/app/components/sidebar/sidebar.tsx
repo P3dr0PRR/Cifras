@@ -4,10 +4,10 @@ import Logout from "@/app/components/logout/component";
 
 export function Sidebar() {
   return (
-    <div className="w-64 h-screen bg-brown-700 flex flex-col justify-between py-4">
+    <nav className=" w-full md:w-64 h-full md:h-screen bottom-0 bg-lime-700 flex flex-col justify-between py-4 gap-4">
       <div className="flex flex-col gap-2">
         <Link href="/" className="sidebar-btn">
-          Cifras
+          Home
         </Link>
         <Link href="/goodN" className="sidebar-btn">
           Good Night
@@ -19,6 +19,6 @@ export function Sidebar() {
       <div className="mx-8">
         <Logout />
       </div>
-    </div>
+    </nav>
   );
 }
