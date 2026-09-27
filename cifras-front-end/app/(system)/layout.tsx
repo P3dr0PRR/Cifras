@@ -7,15 +7,18 @@ export default function SystemLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex flex-col h-dvh">
+    <div className="flex flex-col h-dvh overflow-hidden">
       <MobileMenu>
         <Sidebar />
       </MobileMenu>
-      <div className="grid md:grid-cols-[16rem_1fr] flex-1 h-full">
-        <div className="hidden md:block">
+      <div className="grid md:grid-cols-[16rem_1fr] flex-1 min-h-0">
+        <div className="hidden md:block ">
           <Sidebar />
         </div>
-        {children}
+        <main className="overflow-y-auto min-h-0">
+           {children}
+        </main>
+       
       </div>
     </div>
   );

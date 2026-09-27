@@ -4,7 +4,7 @@ import Logout from "@/app/components/logout/component";
 
 export function Sidebar() {
   return (
-    <nav className=" w-full md:w-64 h-full md:h-screen bottom-0 bg-lime-700 flex flex-col justify-between py-4 gap-4">
+    <nav className=" w-full md:w-64 h-full bg-lime-700 flex flex-col justify-between py-4 gap-4">
       <div className="flex flex-col gap-2">
         <Link href="/" className="sidebar-btn">
           Home

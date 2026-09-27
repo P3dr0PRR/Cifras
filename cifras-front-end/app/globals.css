@@ -23,12 +23,17 @@ html {
   }
 }
 
-@layer base {
-  section {
-    @apply pt-5 flex flex-col items-center justify-center min-h-screen bg-black cursor-default;
-  }
-}
 @layer components {
+
+  .form-auth {
+    @apply flex flex-col justify-center rounded-2xl px-10 py-10 w-full max-w-sm bg-neutral-900 border border-neutral-700 shadow-lg;
+  }
+  .section-page {
+    @apply flex flex-col items-center justify-center px-6 text-center relative overflow-hidden;
+  }
+  .div-page {
+    @apply w-full min-h-full bg-gray-950 flex flex-col;
+  }
   .sidebar-btn {
     @apply cursor-pointer text-white bg-gray-800 border border-orange-950 focus:transition-transform duration-300 focus:scale-105 focus:outline-none focus:border-orange-500 focus:border-2 text-center py-2 rounded-md mx-2 text-lg font-semibold;
   }
