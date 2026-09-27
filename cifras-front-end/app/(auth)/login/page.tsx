@@ -28,7 +28,7 @@ export default function Login() {
   }
 
   return (
-    <section className="">
+    <section className="flex flex-col items-center justify-center min-h-screen bg-black my-4">
       <div className="header-logo">
         <Image
           src="/images/cifrasLogo.png"
@@ -40,7 +40,7 @@ export default function Login() {
       </div>
       <form
         onSubmit={handleLogin}
-        className="flex flex-col rounded-2xl px-10 py-10 w-full max-w-sm bg-neutral-900 border border-neutral-700 shadow-lg"
+        className="form-auth"
       >
         <h2 className="header-login">Entrar</h2>
         <p className="text-base mb-8">Entre na sua conta</p>

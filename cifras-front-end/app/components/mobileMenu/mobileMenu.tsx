@@ -19,11 +19,11 @@ export default function MobileMenu({
 
   return (
     <div>
-      <div className="block md:hidden z-100">
+      <div className="block md:hidden">
         <button onClick={handleMenuClick} className="p-2">
           <HeaderIn />
         </button>
-        {isMenuOpen && <div className="fixed inset-t-16 inset-x-0 z-50" onClick={closeMenu}>{children}</div>}
+        {isMenuOpen && <div className="fixed bottom-0 top-16 inset-x-0 z-50" onClick={closeMenu}>{children}</div>}
       </div>
     </div>
   );

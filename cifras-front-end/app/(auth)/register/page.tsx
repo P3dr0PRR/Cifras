@@ -37,17 +37,17 @@ export default function Register() {
   }
 
   return (
-    <section className="flex flex-col items-center justify-center min-h-screen bg-black">
-      <div className="header-logo ">
-        <Image
-          src="/images/cifrasLogo.png"
-          alt="Logo Cifras"
-          width={120}
-          height={40}
-          className="loading=eager"
-        />
-      </div>
-      <form className="flex flex-col rounded-2xl px-10 py-10 w-full max-w-sm bg-neutral-900 border border-neutral-700 shadow-lg">
+   <section className="flex flex-col items-center justify-center min-h-screen bg-black my-4">
+        <div className="header-logo">
+          <Image
+            src="/images/cifrasLogo.png"
+            alt="Logo Cifras"
+            width={120}
+            height={40}
+            className="loading=eager lg:ml-40"
+          />
+        </div>
+      <form className="form-auth">
         <p className="header-login mb-1">Criar conta</p>
         <p className="text-base mb-8">Junte-se ao Cifras</p>
 
