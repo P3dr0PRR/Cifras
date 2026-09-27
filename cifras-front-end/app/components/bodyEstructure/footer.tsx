@@ -5,3 +5,5 @@ export function Footer() {
     </footer>
   );
 }
+
+//criar um "Credits" para colocar o footer que indica o criador
