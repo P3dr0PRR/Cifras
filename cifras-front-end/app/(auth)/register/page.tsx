@@ -3,6 +3,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 import Image from "next/image";
+import { urlBaseBack } from "@/app/(system)/settingss/settings";
 
 export default function Register() {
   const router = useRouter();
@@ -12,7 +13,7 @@ export default function Register() {
   const [instrument, setInstrument] = useState("");
 
   async function handleRegister() {
-    const resposta = await fetch("http://localhost:3001/user", {
+    const resposta = await fetch(`${urlBaseBack}/auth/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -40,7 +41,7 @@ export default function Register() {
    <section className="flex flex-col items-center justify-center min-h-screen bg-black my-4">
         <div className="header-logo">
           <Image
-            src="/images/cifrasLogo.png"
+            src="/images/CifrasSvg.svg"
             alt="Logo Cifras"
             width={120}
             height={40}
