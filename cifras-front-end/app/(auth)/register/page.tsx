@@ -13,7 +13,7 @@ export default function Register() {
   const [instrument, setInstrument] = useState("");
 
   async function handleRegister() {
-    const resposta = await fetch(`${urlBaseBack}/auth/register`, {
+    const resposta = await fetch(`${urlBaseBack}/user`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

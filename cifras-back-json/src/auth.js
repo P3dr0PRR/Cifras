@@ -1,5 +1,6 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
+const { ACCOUNTS } = require('./roles');
 const { verifyPassword } = require('./password');
 const { sendError } = require('./sendError');
 const { findUserByEmail, toPublicUser } = require('./userStore');
@@ -50,7 +51,7 @@ authRouter.post('/auth/login', (request, response) => {
   }
 
   const token = jwt.sign(
-    { userId: user.id, email: user.email, name: user.name },
+    { userId: user.id, email: user.email, name: user.name, accountType: user.accountType },
     JWT_SECRET,
     { expiresIn: TOKEN_EXPIRATION },
   );

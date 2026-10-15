@@ -1,4 +1,5 @@
 const express = require('express');
+const {ACCOUNTS} = require('./roles');
 const { authenticateToken } = require('./auth');
 const { hashPassword } = require('./password');
 const { sendError } = require('./sendError');
@@ -90,6 +91,7 @@ userRouter.post('/user', (request, response) => {
     id: nextUserId(users),
     ...userFields,
     password: hashPassword(userFields.password),
+    accountType: ACCOUNTS.MUSICIAN,
   };
   users.push(newUser);
   saveUsers(users);
