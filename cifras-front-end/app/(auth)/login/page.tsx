@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { useState, type FormEvent } from "react";
 
 import Image from "next/image";
+import { urlBaseBack } from "@/app/(system)/settingss/settings";
 
 export default function Login() {
   const router = useRouter();
@@ -12,7 +13,7 @@ export default function Login() {
 
   async function handleLogin(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const resposta = await fetch("http://localhost:3001/auth/login", {
+    const resposta = await fetch(`${urlBaseBack}/auth/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
@@ -31,7 +32,7 @@ export default function Login() {
     <section className="flex flex-col items-center justify-center min-h-screen bg-black my-4">
       <div className="header-logo">
         <Image
-          src="/images/cifrasLogo.png"
+          src="/images/CifrasSvg.svg"
           alt="Logo Cifras"
           width={120}
           height={40}
